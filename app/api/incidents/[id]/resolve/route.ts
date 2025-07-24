@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib/prisma'; // adjust path as needed
 
 // PATCH /api/incidents/[id]/resolve
 export async function PATCH(
@@ -7,9 +7,9 @@ export async function PATCH(
   context: { params: Promise<{ id: string }> }
 ) {
   const { id } = await context.params;
-  const incident = await prisma.incident.update({
+  const updatedIncident = await prisma.incident.update({
     where: { id: parseInt(id, 10) },
     data: { resolved: true },
   });
-  return NextResponse.json(incident);
+  return NextResponse.json(updatedIncident);
 }
