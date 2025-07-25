@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma'; // adjust path as needed
+import { prisma } from '@/lib/prisma'; 
 
-// PATCH /api/incidents/[id]/resolve
 export async function PATCH(
   request: NextRequest,
   context: { params: Promise<{ id: string }> }
